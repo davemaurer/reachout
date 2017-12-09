@@ -1,8 +1,8 @@
-class SessionsController < ApplicationController
+class SessionsController < Clearance::SessionsController
   private
 
-  def authenticate()
-    super(sessions_params)
+  def authenticate(_)
+    super(session_params)
   end
 
   def session_params
