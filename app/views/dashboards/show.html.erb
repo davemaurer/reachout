@@ -4,3 +4,9 @@
   <%= form.text_field :body, placeholder: "Reach out", required: true %>
   <%= form.submit "Reach out" %>
 <% end %>
+
+<% @reaches.each do |reach| %>
+  <div>
+    <%= reach.body %>
+  </div>
+<% end %>
