@@ -1,1 +1,6 @@
 <h1>Your Dashboard</h1>
+
+<%= form_for @reach do |form| %>
+  <%= form.text_field :body, placeholder: "Reach out", required: true %>
+  <%= form.submit "Reach out" %>
+<% end %>

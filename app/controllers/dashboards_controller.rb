@@ -1,5 +1,5 @@
 class DashboardsController < ApplicationController
   def show
-    render
+    @reach = Reach.new
   end
 end
