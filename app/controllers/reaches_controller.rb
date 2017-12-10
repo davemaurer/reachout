@@ -1,4 +1,8 @@
 class ReachesController < ApplicationController
+  def show
+    @reach = Reach.find(params[:id])
+  end
+
   def create
     reach = current_user.reaches.create(reach_params)
     redirect_to root_path, redirect_options_for(reach)
