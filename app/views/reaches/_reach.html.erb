@@ -1,0 +1,7 @@
+  <div>
+    <%= link_to reach.username, reach.user %>
+    <%= reach.body %>
+    <%= link_to reach do %>
+      <%= time_ago_in_words(reach.created_at) %> ago
+    <% end %>
+  </div>
