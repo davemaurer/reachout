@@ -7,6 +7,8 @@
 
 <% @reaches.each do |reach| %>
   <div>
+    <%= reach.user.username %>
     <%= reach.body %>
+    <%= time_ago_in_words(reach.created_at) %> ago
   </div>
 <% end %>
