@@ -11,7 +11,15 @@ class ReachesController < ApplicationController
   private
 
   def reach_params
-    params.require(:reach).permit(:body)
+    { content: content_from_params }
+  end
+
+  def content_from_params
+    TextReach.new(content_params)
+  end
+
+  def content_params
+    params.require(:reach).require(:content).permit(:body)
   end
 
   def redirect_options_for(reach)
