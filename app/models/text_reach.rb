@@ -1,0 +1,2 @@
+class TextReach < ApplicationRecord
+end
