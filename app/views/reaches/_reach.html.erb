@@ -5,4 +5,5 @@
     <%= link_to reach do %>
       <%= time_ago_in_words(reach.created_at) %> ago
     <% end %>
+    <%= link_to "Like", like_reach_path(reach), method: :post %>
   </div>

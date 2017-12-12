@@ -4,4 +4,10 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   has_many :reaches, dependent: :destroy
+  has_many :likes
+  has_many :liked_reaches, through: :likes, source: :reach
+
+  def like(reach)
+    liked_reaches << reach
+  end
 end
