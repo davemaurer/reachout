@@ -10,4 +10,8 @@ class User < ApplicationRecord
   def like(reach)
     liked_reaches << reach
   end
+
+  def liked?(reach)
+    liked_reach_ids.include?(reach.id)
+  end
 end
