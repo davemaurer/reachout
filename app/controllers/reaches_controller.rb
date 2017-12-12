@@ -15,18 +15,25 @@ class ReachesController < ApplicationController
   end
 
   def content_from_params
-    TextReach.new(content_params)
+    case params[:reach][:content_type]
+      when "TextReach" then TextReach.new(text_reach_content_params)
+      when "PhotoReach" then PhotoReach.new(photo_reach_content_params)
+    end
   end
 
-  def content_params
+  def text_reach_content_params
     params.require(:reach).require(:content).permit(:body)
+  end
+
+  def photo_reach_content_params
+    params.require(:reach).require(:content).permit(:image)
   end
 
   def redirect_options_for(reach)
     if reach.persisted?
       { notice: "You reached out" }
     else
-      { alert: "Failed to reach out"}
+      { alert: "FAILED to reach out"}
     end
   end
 end

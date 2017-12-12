@@ -1,10 +1,19 @@
 <h1>Your Dashboard</h1>
 
 <%= form_for @reach do |form| %>
+  <%= form.hidden_field :content_type, value: "TextReach" %>
   <%= form.fields_for :content do |content_form| %>
     <%= content_form.text_field :body, placeholder: "Reach out", required: true %>
+    <%= form.submit "Reach out" %>
   <% end %>
-  <%= form.submit "Reach out" %>
+<% end %>
+
+<%= form_for @reach do |form| %>
+  <%= form.hidden_field :content_type, value: "PhotoReach" %>
+  <%= form.fields_for :content do |content_form| %>
+    <%= content_form.file_field :image, required: true %>
+    <%= form.submit "Reach out" %>
+  <% end %>
 <% end %>
 
 <%= render @reaches %>
