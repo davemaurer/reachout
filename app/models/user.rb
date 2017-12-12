@@ -11,6 +11,10 @@ class User < ApplicationRecord
     liked_reaches << reach
   end
 
+  def unlike(reach)
+    liked_reaches.destroy(reach)
+  end
+
   def liked?(reach)
     liked_reach_ids.include?(reach.id)
   end
