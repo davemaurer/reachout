@@ -18,4 +18,8 @@ class User < ApplicationRecord
   def liked?(reach)
     liked_reach_ids.include?(reach.id)
   end
+
+  def to_param
+    username
+  end
 end
