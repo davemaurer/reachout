@@ -6,6 +6,12 @@ class User < ApplicationRecord
   has_many :reaches, dependent: :destroy
   has_many :likes
   has_many :liked_reaches, through: :likes, source: :reach
+  has_many :following_relationships
+  has_many :followed_users, through: :following_relationships
+
+  def follow(user)
+    followed_users << user
+  end
 
   def like(reach)
     liked_reaches << reach
