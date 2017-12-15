@@ -1,11 +1,7 @@
 <h1>Your Dashboard</h1>
 
-<%= reach_form_for(TextReach) do |form| %>
-  <%= form.text_field :body, placeholder: "Reach out", required: true %>
-<% end %>
+<%= render "reaches/text_reach_form" %>
 
-<%= reach_form_for(PhotoReach) do |form| %>
-  <%= form.file_field :image, required: true %>
-<% end %>
+<%= render "reaches/photo_reach_form" %>
 
 <%= render @reaches %>
