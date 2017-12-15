@@ -15,18 +15,11 @@ class ReachesController < ApplicationController
   end
 
   def content_from_params
-    case params[:reach][:content_type]
-      when "TextReach" then TextReach.new(text_reach_content_params)
-      when "PhotoReach" then PhotoReach.new(photo_reach_content_params)
-    end
+    params[:content_type].new(content_params)
   end
 
-  def text_reach_content_params
-    params.require(:reach).require(:content).permit(:body)
-  end
-
-  def photo_reach_content_params
-    params.require(:reach).require(:content).permit(:image)
+  def content_params
+    params.require(:reach).require(:content).permit!
   end
 
   def redirect_options_for(reach)

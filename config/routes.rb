@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   root to: "homes#show"
 
-  resources :reaches, only: [:create, :show] do
+  post "text_reaches" => "reaches#create", defaults: { content_type: TextReach }
+  post "photo_reaches" => "reaches#create", defaults: { content_type: PhotoReach }
+
+  resources :reaches, only: [:show] do
     member do
       post "like" => "likes#create"
       delete "unlike" => "likes#destroy"
