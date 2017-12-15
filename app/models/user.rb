@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :reaches, dependent: :destroy
   has_many :likes
   has_many :liked_reaches, through: :likes, source: :reach
-  has_many :following_relationships
+  has_many :following_relationships, foreign_key: :follower_id
   has_many :followed_users, through: :following_relationships
 
   def follow(user)
