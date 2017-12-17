@@ -6,7 +6,7 @@ class Search
   end
 
   def run
-    ReachSearchQuery.new(term: "#{@term}").to_relation
+    ReachSearchQuery.new(term: "#{term}").to_relation
   end
 
   alias results run
