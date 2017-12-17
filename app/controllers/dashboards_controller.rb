@@ -1,6 +1,5 @@
 class DashboardsController < ApplicationController
   def show
-    @reach = Reach.new
-    @reaches = current_user.timeline_reaches
+    @timeline = Timeline.new(current_user)
   end
 end
