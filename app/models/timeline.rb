@@ -4,7 +4,9 @@ class Timeline
   end
 
   def reaches
-    Reach.where(user_id: timeline_ids)
+    Reach.
+      where(user_id: timeline_ids).
+      order(created_at: :desc)
   end
 
   private
